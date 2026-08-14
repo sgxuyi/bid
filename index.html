@@ -1,0 +1,2120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BidPower · 专业投标服务 | 标书制作·投标文件编制</title>
+    <meta name="description" content="BidPower 提供全套投标文件与招投标服务，包括技术标、商务标、价格标编制，质疑答复、保标控标等全流程服务。助力企业成功中标。" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+    <style>
+        /* ===== CSS Variables ===== */
+        :root {
+            --primary: #0f1a3a;
+            --primary-light: #1a2d5a;
+            --primary-dark: #080e24;
+            --accent: #d4a843;
+            --accent-light: #f0d060;
+            --accent-glow: rgba(212, 168, 67, 0.25);
+            --bg-light: #f8f9fc;
+            --bg-white: #ffffff;
+            --text-dark: #0f1a2e;
+            --text-body: #2d3a5a;
+            --text-muted: #6a7a9a;
+            --border-light: #e8ecf4;
+            --shadow-sm: 0 4px 20px rgba(15, 26, 58, 0.06);
+            --shadow-md: 0 8px 40px rgba(15, 26, 58, 0.10);
+            --shadow-lg: 0 20px 60px rgba(15, 26, 58, 0.14);
+            --radius: 14px;
+            --radius-lg: 20px;
+            --transition: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --max-width: 1200px;
+            --header-height: 76px;
+            --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        /* ===== Reset & Base ===== */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font);
+            background: var(--bg-light);
+            color: var(--text-body);
+            line-height: 1.6;
+            padding-top: var(--header-height);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ===== Buttons ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 32px;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: var(--font);
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--primary-dark);
+            box-shadow: 0 4px 18px var(--accent-glow);
+        }
+        .btn-primary:hover {
+            background: var(--accent-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px var(--accent-glow);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        .btn-outline:hover {
+            background: var(--primary);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline-light {
+            background: transparent;
+            color: #fff;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+        }
+        .btn-outline-light:hover {
+            background: #fff;
+            color: var(--primary-dark);
+            border-color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .btn-white {
+            background: #fff;
+            color: var(--primary-dark);
+        }
+        .btn-white:hover {
+            background: var(--accent-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-sm {
+            padding: 8px 22px;
+            font-size: 0.85rem;
+        }
+
+        /* ===== Header ===== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--header-height);
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(15, 26, 58, 0.06);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+        .header.scrolled {
+            box-shadow: var(--shadow-sm);
+        }
+
+        .header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+            flex-shrink: 0;
+        }
+        .logo-icon {
+            width: 38px;
+            height: 38px;
+            background: var(--primary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-weight: 800;
+            font-size: 1.1rem;
+        }
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .nav a {
+            padding: 6px 16px;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-body);
+            transition: var(--transition);
+            position: relative;
+        }
+        .nav a:hover,
+        .nav a.active {
+            color: var(--primary);
+            background: rgba(15, 26, 58, 0.06);
+        }
+        .nav a.active {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .nav-cta {
+            margin-left: 8px;
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 6px;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+        .menu-toggle span {
+            display: block;
+            width: 26px;
+            height: 2.5px;
+            background: var(--primary);
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* ===== Page Sections ===== */
+        .page {
+            display: none;
+            animation: fadeUp 0.5s ease forwards;
+        }
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeUp {
+            0% {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== Hero ===== */
+        .hero {
+            padding: 60px 0 80px;
+            background: var(--primary);
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+            border-radius: 0 0 40px 40px;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: -40%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(212, 168, 67, 0.10) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .hero .container {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        .hero-content h1 {
+            font-size: 3.4rem;
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -1px;
+            margin-bottom: 16px;
+            color: #fff;
+        }
+        .hero-content h1 .highlight {
+            color: var(--accent);
+            position: relative;
+        }
+        .hero-content p {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            max-width: 500px;
+            margin-bottom: 32px;
+            line-height: 1.7;
+        }
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .hero-image img {
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            width: 100%;
+            height: 340px;
+            object-fit: cover;
+        }
+
+        /* Trust Bar */
+        .trust-bar {
+            padding: 32px 0;
+            background: var(--bg-white);
+            border-bottom: 1px solid var(--border-light);
+        }
+        .trust-bar .container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 30px 50px;
+        }
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 500;
+            color: var(--text-body);
+            font-size: 0.95rem;
+        }
+        .trust-item .icon {
+            font-size: 1.5rem;
+        }
+
+        /* ===== Section Titles ===== */
+        .section-title {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 48px;
+        }
+        .section-title .label {
+            display: inline-block;
+            background: rgba(212, 168, 67, 0.12);
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 4px 16px;
+            border-radius: 40px;
+            margin-bottom: 12px;
+        }
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+            margin-bottom: 12px;
+        }
+        .section-title p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* ===== Core Advantages ===== */
+        .advantages {
+            padding: 72px 0 56px;
+            background: var(--bg-white);
+        }
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        .advantage-card {
+            background: var(--bg-light);
+            border-radius: var(--radius);
+            padding: 36px 28px;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+        .advantage-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--accent);
+            box-shadow: var(--shadow-md);
+        }
+        .advantage-card .icon {
+            font-size: 2.8rem;
+            margin-bottom: 16px;
+            display: block;
+        }
+        .advantage-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+        .advantage-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        /* ===== Services Preview ===== */
+        .services-preview {
+            padding: 72px 0 64px;
+            background: var(--bg-light);
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+        .service-card {
+            background: var(--bg-white);
+            border-radius: var(--radius);
+            padding: 28px 22px;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid var(--border-light);
+        }
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--accent);
+        }
+        .service-card .icon {
+            font-size: 2.2rem;
+            margin-bottom: 12px;
+            display: block;
+        }
+        .service-card h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+        .service-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* ===== Testimonials ===== */
+        .testimonials {
+            padding: 72px 0 64px;
+            background: var(--bg-white);
+        }
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+        .testimonial-card {
+            background: var(--bg-light);
+            border-radius: var(--radius);
+            padding: 30px 28px;
+            border-left: 4px solid var(--accent);
+        }
+        .testimonial-card .stars {
+            color: var(--accent);
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+        .testimonial-card blockquote {
+            font-size: 0.98rem;
+            color: var(--text-body);
+            font-style: italic;
+            margin-bottom: 14px;
+            line-height: 1.7;
+        }
+        .testimonial-card .author {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        .testimonial-card .role {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* ===== About Preview ===== */
+        .about-preview {
+            padding: 72px 0 64px;
+            background: var(--bg-light);
+        }
+        .about-preview .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        .about-preview img {
+            border-radius: var(--radius-lg);
+            height: 340px;
+            object-fit: cover;
+            box-shadow: var(--shadow-md);
+        }
+        .about-preview h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+        .about-preview p {
+            color: var(--text-body);
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        /* ===== Final CTA ===== */
+        .final-cta {
+            padding: 72px 0;
+            background: var(--primary);
+            color: #fff;
+            text-align: center;
+            border-radius: 40px 40px 0 0;
+        }
+        .final-cta h2 {
+            font-size: 2.6rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .final-cta p {
+            opacity: 0.8;
+            max-width: 550px;
+            margin: 0 auto 32px;
+            font-size: 1.1rem;
+        }
+        .final-cta .btn {
+            margin: 0 8px;
+        }
+
+        /* ===== About Page ===== */
+        .about-hero {
+            padding: 60px 0 48px;
+            background: var(--primary);
+            color: #fff;
+            border-radius: 0 0 40px 40px;
+        }
+        .about-hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+        }
+        .about-hero p {
+            opacity: 0.8;
+            max-width: 600px;
+            margin-top: 8px;
+        }
+
+        .about-story {
+            padding: 72px 0;
+            background: var(--bg-white);
+        }
+        .about-story .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        .about-story img {
+            border-radius: var(--radius-lg);
+            height: 320px;
+            object-fit: cover;
+            box-shadow: var(--shadow-md);
+        }
+        .about-story h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+        .about-story p {
+            line-height: 1.8;
+            margin-bottom: 12px;
+        }
+
+        .mission-section {
+            padding: 64px 0;
+            background: var(--bg-light);
+        }
+        .mission-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+        .mission-item {
+            background: var(--bg-white);
+            border-radius: var(--radius);
+            padding: 32px 24px;
+            text-align: center;
+            border: 1px solid var(--border-light);
+        }
+        .mission-item .icon {
+            font-size: 2.4rem;
+            margin-bottom: 12px;
+        }
+        .mission-item h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 6px;
+        }
+        .mission-item p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .diff-section {
+            padding: 72px 0;
+            background: var(--bg-white);
+        }
+        .diff-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        .diff-item {
+            display: flex;
+            gap: 18px;
+            padding: 24px 28px;
+            background: var(--bg-light);
+            border-radius: var(--radius);
+            border-left: 4px solid var(--accent);
+        }
+        .diff-item .icon {
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+        .diff-item h4 {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+        .diff-item p {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+        }
+
+        /* ===== Services Page ===== */
+        .services-hero {
+            padding: 60px 0 48px;
+            background: var(--primary);
+            color: #fff;
+            border-radius: 0 0 40px 40px;
+        }
+        .services-hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+        }
+        .services-hero p {
+            opacity: 0.8;
+            max-width: 600px;
+            margin-top: 8px;
+        }
+
+        .services-full {
+            padding: 72px 0;
+            background: var(--bg-white);
+        }
+        .services-full-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+        .service-full-card {
+            background: var(--bg-light);
+            border-radius: var(--radius);
+            padding: 32px 24px;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+        .service-full-card:hover {
+            border-color: var(--accent);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-4px);
+        }
+        .service-full-card .icon {
+            font-size: 2.6rem;
+            margin-bottom: 12px;
+        }
+        .service-full-card h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 6px;
+        }
+        .service-full-card p {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+        }
+
+        .process-section {
+            padding: 72px 0;
+            background: var(--bg-light);
+        }
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            counter-reset: step;
+        }
+        .process-step {
+            text-align: center;
+            padding: 28px 20px;
+            background: var(--bg-white);
+            border-radius: var(--radius);
+            position: relative;
+            border: 1px solid var(--border-light);
+        }
+        .process-step::before {
+            counter-increment: step;
+            content: counter(step);
+            display: inline-block;
+            width: 44px;
+            height: 44px;
+            line-height: 44px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+        }
+        .process-step h4 {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+        .process-step p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .faq-section {
+            padding: 72px 0;
+            background: var(--bg-white);
+        }
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .faq-item {
+            background: var(--bg-light);
+            border-radius: var(--radius);
+            padding: 18px 24px;
+            border: 1px solid var(--border-light);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .faq-item:hover {
+            border-color: var(--accent);
+        }
+        .faq-item .question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        .faq-item .question .arrow {
+            transition: var(--transition);
+            font-size: 1.2rem;
+        }
+        .faq-item.open .question .arrow {
+            transform: rotate(180deg);
+        }
+        .faq-item .answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: var(--transition);
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        .faq-item.open .answer {
+            max-height: 200px;
+            padding-top: 12px;
+        }
+
+        /* ===== Listings Page ===== */
+        .listings-hero {
+            padding: 60px 0 48px;
+            background: var(--primary);
+            color: #fff;
+            border-radius: 0 0 40px 40px;
+        }
+        .listings-hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+        }
+        .listings-hero p {
+            opacity: 0.8;
+            max-width: 600px;
+            margin-top: 8px;
+        }
+
+        .listings-filter {
+            padding: 32px 0 24px;
+            background: var(--bg-white);
+            border-bottom: 1px solid var(--border-light);
+        }
+        .filter-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        .filter-btn {
+            padding: 8px 24px;
+            border-radius: 40px;
+            border: 1px solid var(--border-light);
+            background: var(--bg-white);
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: var(--text-body);
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: var(--font);
+        }
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+        }
+
+        .listings-grid {
+            padding: 48px 0 64px;
+            background: var(--bg-light);
+        }
+        .listings-grid .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+        .listing-card {
+            background: var(--bg-white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border: 1px solid var(--border-light);
+        }
+        .listing-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--accent);
+        }
+        .listing-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .listing-card .body {
+            padding: 20px 22px 24px;
+        }
+        .listing-card .tag {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--accent);
+            background: rgba(212, 168, 67, 0.10);
+            padding: 2px 12px;
+            border-radius: 40px;
+            margin-bottom: 8px;
+        }
+        .listing-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+        .listing-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* ===== Contact Page ===== */
+        .contact-hero {
+            padding: 60px 0 48px;
+            background: var(--primary);
+            color: #fff;
+            border-radius: 0 0 40px 40px;
+        }
+        .contact-hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+        }
+        .contact-hero p {
+            opacity: 0.8;
+            max-width: 600px;
+            margin-top: 8px;
+        }
+
+        .contact-section {
+            padding: 72px 0;
+            background: var(--bg-white);
+        }
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        .contact-form {
+            background: var(--bg-light);
+            padding: 40px 36px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border-light);
+        }
+        .contact-form h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 18px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: var(--text-body);
+            margin-bottom: 4px;
+        }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 10px;
+            border: 1px solid var(--border-light);
+            font-family: var(--font);
+            font-size: 0.95rem;
+            transition: var(--transition);
+            background: var(--bg-white);
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 4px var(--accent-glow);
+        }
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        .contact-info h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+        .info-item {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            padding: 16px 20px;
+            background: var(--bg-light);
+            border-radius: var(--radius);
+            border: 1px solid var(--border-light);
+        }
+        .info-item .icon {
+            font-size: 1.4rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .info-item strong {
+            color: var(--primary);
+            display: block;
+        }
+        .info-item p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 8px;
+        }
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--bg-light);
+            border: 1px solid var(--border-light);
+            font-size: 1.2rem;
+            transition: var(--transition);
+            color: var(--text-body);
+        }
+        .social-links a:hover {
+            background: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .map-placeholder {
+            margin-top: 24px;
+            border-radius: var(--radius);
+            overflow: hidden;
+            height: 200px;
+            background: var(--bg-light);
+            border: 1px solid var(--border-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* ===== Footer ===== */
+        .footer {
+            background: var(--primary-dark);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 56px 0 28px;
+        }
+        .footer .container {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+        }
+        .footer-brand .logo {
+            color: #fff;
+            margin-bottom: 12px;
+        }
+        .footer-brand p {
+            font-size: 0.92rem;
+            max-width: 280px;
+            line-height: 1.7;
+        }
+        .footer h4 {
+            color: #fff;
+            font-weight: 600;
+            margin-bottom: 14px;
+            font-size: 1rem;
+        }
+        .footer ul li {
+            margin-bottom: 8px;
+        }
+        .footer ul a:hover {
+            color: var(--accent);
+        }
+        .footer .social-links a {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(255, 255, 255, 0.08);
+            color: rgba(255, 255, 255, 0.6);
+        }
+        .footer .social-links a:hover {
+            background: var(--accent);
+            color: var(--primary-dark);
+            border-color: var(--accent);
+        }
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            margin-top: 32px;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.85rem;
+            grid-column: 1 / -1;
+        }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 1024px) {
+            .hero .container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-content p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-actions {
+                justify-content: center;
+            }
+            .hero-image img {
+                height: 260px;
+            }
+
+            .about-preview .container,
+            .about-story .container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .about-preview img,
+            .about-story img {
+                height: 260px;
+            }
+
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .footer .container {
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --header-height: 68px;
+            }
+
+            .nav {
+                position: fixed;
+                top: var(--header-height);
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(18px);
+                flex-direction: column;
+                padding: 20px 24px 30px;
+                gap: 4px;
+                border-bottom: 1px solid var(--border-light);
+                transform: translateY(-120%);
+                transition: var(--transition);
+                box-shadow: var(--shadow-md);
+                z-index: 999;
+            }
+            .nav.open {
+                transform: translateY(0);
+            }
+            .nav a {
+                padding: 12px 16px;
+                width: 100%;
+                text-align: center;
+                font-size: 1rem;
+            }
+            .nav-cta {
+                margin-left: 0;
+                margin-top: 8px;
+                width: 100%;
+            }
+            .nav-cta .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            .hero {
+                padding: 40px 0 56px;
+            }
+            .hero-image img {
+                height: 200px;
+            }
+
+            .advantages-grid,
+            .services-grid,
+            .testimonials-grid,
+            .services-full-grid,
+            .listings-grid .grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .mission-grid,
+            .diff-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .final-cta h2 {
+                font-size: 2rem;
+            }
+
+            .about-hero h1,
+            .services-hero h1,
+            .listings-hero h1,
+            .contact-hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .footer .container {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            .footer-brand p {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .advantages-grid,
+            .services-grid,
+            .testimonials-grid,
+            .services-full-grid,
+            .listings-grid .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+            .hero-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+            .hero-actions .btn {
+                width: 100%;
+                max-width: 280px;
+            }
+
+            .contact-form {
+                padding: 24px 18px;
+            }
+
+            .trust-bar .container {
+                gap: 16px 30px;
+            }
+            .trust-item {
+                font-size: 0.85rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.7rem;
+            }
+        }
+
+        /* ===== Utilities ===== */
+        .text-center {
+            text-align: center;
+        }
+        .mt-16 {
+            margin-top: 16px;
+        }
+        .mt-32 {
+            margin-top: 32px;
+        }
+        .mb-8 {
+            margin-bottom: 8px;
+        }
+        .gap-12 {
+            gap: 12px;
+        }
+        .flex-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        /* ===== Scrollbar ===== */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-light);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-light);
+            border-radius: 8px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary);
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== HEADER ===== -->
+    <header class="header" id="header">
+        <div class="container">
+            <a href="#" class="logo" data-page="home">
+                <span class="logo-icon">B</span>
+                Bid<span>Power</span>
+            </a>
+
+            <nav class="nav" id="mainNav">
+                <a href="#" data-page="home" class="active">首页</a>
+                <a href="#" data-page="about">关于我们</a>
+                <a href="#" data-page="services">服务</a>
+                <a href="#" data-page="listings">案例</a>
+                <a href="#" data-page="contact">联系我们</a>
+                <div class="nav-cta">
+                    <a href="#" data-page="contact" class="btn btn-primary btn-sm">获取报价</a>
+                </div>
+            </nav>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="切换菜单">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ===== MAIN ===== -->
+    <main>
+
+        <!-- ============================================================ -->
+        <!-- HOME PAGE -->
+        <!-- ============================================================ -->
+        <section class="page active" id="page-home">
+            <!-- Hero -->
+            <div class="hero">
+                <div class="container">
+                    <div class="hero-content">
+                        <h1>让每一份 <span class="highlight">投标文件</span> 都成为中标利器</h1>
+                        <p>BidPower 提供从技术标、商务标到价格标的全流程投标服务，助您在政府采购、工程建设中脱颖而出。</p>
+                        <div class="hero-actions">
+                            <a href="#" data-page="contact" class="btn btn-primary">立即咨询 →</a>
+                            <a href="#" data-page="services" class="btn btn-outline-light">查看服务</a>
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&h=500&fit=crop&crop=center&auto=format" alt="专业投标文件与建筑蓝图" loading="lazy" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trust Bar -->
+            <div class="trust-bar">
+                <div class="container">
+                    <span class="trust-item"><span class="icon">✓</span> 10,000+ 标书制作</span>
+                    <span class="trust-item"><span class="icon">✓</span> 98.7% 客户满意度</span>
+                    <span class="trust-item"><span class="icon">✓</span> 覆盖 20+ 行业</span>
+                    <span class="trust-item"><span class="icon">✓</span> 300+ 合作企业</span>
+                </div>
+            </div>
+
+            <!-- Core Advantages -->
+            <section class="advantages">
+                <div class="container">
+                    <div class="section-title">
+                        <span class="label">为什么选择 BidPower</span>
+                        <h2>三大核心优势</h2>
+                        <p>专业团队、精准策略、全流程护航，让您的投标之路更顺畅</p>
+                    </div>
+                    <div class="advantages-grid">
+                        <div class="advantage-card">
+                            <span class="icon">📋</span>
+                            <h3>专业标书编制</h3>
+                            <p>资深团队精通技术标、商务标、价格标，确保文件规范、逻辑严密、得分点全覆盖。</p>
+                        </div>
+                        <div class="advantage-card">
+                            <span class="icon">🎯</span>
+                            <h3>精准控标策略</h3>
+                            <p>深入分析招标文件，制定差异化投标策略，从质疑答复到保标控标，步步为营。</p>
+                        </div>
+                        <div class="advantage-card">
+                            <span class="icon">⚡</span>
+                            <h3>全流程高效交付</h3>
+                            <p>从需求对接到文件交付，标准化流程确保高效协作，紧急项目快速响应。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Services Preview -->
+            <section class="services-preview">
+                <div class="container">
+                    <div class="section-title">
+                        <span class="label">我们的服务</span>
+                        <h2>一站式投标解决方案</h2>
+                        <p>覆盖投标全生命周期，让专业的人做专业的事</p>
+                    </div>
+                    <div class="services-grid">
+                        <div class="service-card">
+                            <span class="icon">📄</span>
+                            <h4>技术标编制</h4>
+                            <p>施工组织设计、技术方案、质量保证等</p>
+                        </div>
+                        <div class="service-card">
+                            <span class="icon">📊</span>
+                            <h4>商务标制作</h4>
+                            <p>投标函、授权书、资质文件、业绩证明</p>
+                        </div>
+                        <div class="service-card">
+                            <span class="icon">💰</span>
+                            <h4>价格标编制</h4>
+                            <p>报价策略、成本分析、价格测算</p>
+                        </div>
+                        <div class="service-card">
+                            <span class="icon">🛡️</span>
+                            <h4>保标·控标</h4>
+                            <p>质疑答复、风险防控、中标策略</p>
+                        </div>
+                    </div>
+                    <div class="text-center mt-32">
+                        <a href="#" data-page="services" class="btn btn-primary">查看全部服务 →</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Testimonials -->
+            <section class="testimonials">
+                <div class="container">
+                    <div class="section-title">
+                        <span class="label">客户评价</span>
+                        <h2>他们选择了 BidPower</h2>
+                        <p>来自不同行业客户的真实反馈</p>
+                    </div>
+                    <div class="testimonials-grid">
+                        <div class="testimonial-card">
+                            <div class="stars">★★★★★</div>
+                            <blockquote>“BidPower 帮我们制作的技术标非常专业，最终以绝对优势中标。团队响应迅速，值得信赖！”</blockquote>
+                            <div class="author">张总</div>
+                            <div class="role">建筑工程企业 · 总经理</div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="stars">★★★★★</div>
+                            <blockquote>“政府采购项目时间紧、要求高，BidPower 的商务标团队帮我们完美解决了资质文件整理和业绩证明的难题。”</blockquote>
+                            <div class="author">李女士</div>
+                            <div class="role">IT科技企业 · 投标负责人</div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="stars">★★★★★</div>
+                            <blockquote>“从质疑答复到最终控标，BidPower 的全流程服务让我们在复杂的投标环境中稳操胜券。”</blockquote>
+                            <div class="author">王总</div>
+                            <div class="role">设备供应商 · 市场总监</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Preview -->
+            <section class="about-preview">
+                <div class="container">
+                    <div>
+                        <span class="label" style="display:inline-block;background:rgba(212,168,67,0.12);color:var(--accent);font-weight:600;font-size:0.8rem;text-transform:uppercase;letter-spacing:1px;padding:4px 16px;border-radius:40px;margin-bottom:12px;">关于我们</span>
+                        <h2>专注投标服务，助力企业成功</h2>
+                        <p>BidPower 成立于 2018 年，是国内领先的招投标全流程服务提供商。我们深谙招投标规则，拥有覆盖建筑工程、政府采购、IT科技、设备制造等领域的专业团队。</p>
+                        <p>我们坚信：每一份投标文件都承载着企业的希望与实力。我们以专业、严谨、高效的态度，帮助客户将实力转化为中标成果。</p>
+                        <a href="#" data-page="about" class="btn btn-primary">了解更多 →</a>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=500&fit=crop&crop=center&auto=format" alt="BidPower 专业团队协作" loading="lazy" />
+                </div>
+            </section>
+
+            <!-- Final CTA -->
+            <section class="final-cta">
+                <div class="container">
+                    <h2>准备好赢下下一个标了吗？</h2>
+                    <p>立即联系我们，获取免费的投标咨询与方案评估</p>
+                    <div class="flex-wrap">
+                        <a href="#" data-page="contact" class="btn btn-primary">立即咨询</a>
+                        <a href="#" data-page="contact" class="btn btn-outline-light">预约服务</a>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- ABOUT PAGE -->
+        <!-- ============================================================ -->
+        <section class="page" id="page-about">
+            <div class="about-hero">
+                <div class="container">
+                    <h1>关于 BidPower</h1>
+                    <p>以专业赋能投标，以策略驱动中标</p>
+                </div>
+            </div>
+
+            <section class="about-story">
+                <div class="container">
+                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=500&fit=crop&crop=center&auto=format" alt="BidPower 品牌故事" loading="lazy" />
+                    <div>
+                        <h2>我们的品牌故事</h2>
+                        <p>BidPower 的创始团队由资深投标专家、工程造价师和商务策划师组成。我们曾在一线参与过数百个投标项目，深知企业在投标过程中的痛点与挑战。</p>
+                        <p>2018 年，我们决定将经验转化为服务，创立 BidPower，致力于为各类企业提供专业、可靠、高效的投标全流程服务。从最初的技术标编制，到如今覆盖质疑答复、保标控标的完整服务体系，我们始终与客户并肩作战。</p>
+                        <p>我们服务的客户从初创企业到大型集团公司，涵盖建筑工程、政府采购、IT科技、设备制造、服务咨询等多个领域。</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mission-section">
+                <div class="container">
+                    <div class="section-title">
+                        <span class="label">使命与愿景</span>
+                        <h2>让投标更简单，让中标更确定</h2>
+                    </div>
+                    <div class="mission-grid">
+                        <div class="mission-item">
+                            <span class="icon">🎯</span>
+                            <h3>使命</h3>
+                            <p>通过专业的投标服务，帮助企业在招投标中充分展现实力，实现中标目标。</p>
+                        </div>
+                        <div class="mission-item">
+                            <span class="icon">🌟</span>
+                            <h3>愿景</h3>
+                            <p>成为中国领先的招投标全流程服务品牌，让每一份标书都成为企业的成功名片。</p>
+                        </div>
+                        <div class="mission-item">
+                            <span class="icon">💎</span>
+                            <h3>价值观</h3>
+                            <p>专业 · 诚信 · 精准 · 高效 —— 以客户成功为我们的成功。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="diff-section">
+                <div class="container">
+                    <div class="section-title">
+                        <span class="label">差异化优势</span>
+                        <h2>为什么企业选择 BidPower</h2>
+                    </div>
+                    <div class="diff-grid">
+                        <div class="diff-item">
+                            <span class="icon">🧠</span>
+                            <div>
+                                <h4>资深专家团队</h4>
+                                <p>核心团队拥有 10 年以上投标实战经验，深谙各行业招标规则与评审要点。</p>
+                            </div>
+                        </div>
+                        <div class="diff-item">
+                            <span class="icon">📈</span>
+                            <div>
+                                <h4>数据驱动策略</h4>
+                                <p>基于历史中标数据和行业趋势，为客户提供精准的报价策略与控标方案。</p>
+                            </div>
+                        </div>
+                        <div class="diff-item">
+                            <span class="icon">⚙️</span>
+                            <div>
+                                <h4>全流程标准化</h4>
+                                <p>从需求分析、文件编制到最终交付，每一步都有标准化流程和质量控制。</p>
+                            </div>
+                        </div>
+                        <div class="diff-item">
+                            <span class="icon">🤝</span>
+                            <div>
+                                <h4>客户成功文化</h4>
+                                <p>我们以客户中标为荣，提供终身免费咨询和标后复盘服务。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center mt-32">
+                        <a href="#" data-page="contact" class="btn btn-primary">与专家对话 →</a>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- SERVICES PAGE -->
+        <!-- ============================================================ -->
+        <section class="page" id="page-services">
+            <div class="services-hero">
+                <div class="container">
+                    <h1>我们的服务</h1>
+                    <p>覆盖投标全流程的专业解决方案</p>
+                </div>
+            </div>
+
+            <section class="services-full">
+                <div class="container">
+                    <div class="section-title">
+                        <span class="label">服务详情</span>
+                        <h2>全链条投标服务</h2>
+                    </div>
+                    <div class="services-full-grid">
+                        <div class="service-full-card">
+                            <span class="icon">📄</span>
+                            <h3>技术标编制</h3>
+                            <p>施工组织设计、技术方案、质量安全措施、进度计划、人员配置等全方位技术文件编制。</p>
+                        </div>
+                        <div class="service-full-card">
+                            <span class="icon">📊</span>
+                            <h3>商务标制作</h3>
+                            <p>投标函、授权书、营业执照、资质证书、业绩证明、财务报表等商务文件整理与优化。</p>
+                        </div>
+                        <div class="service-full-card">
+                            <span class="icon">💰</span>
+                            <h3>价格标编制</h3>
+                            <p>报价策略设计、成本测算、价格分析、调价方案，确保报价合理且具有竞争力。</p>
+                        </div>
+                        <div class="service-full-card">
+                            <span class="icon">📋</span>
+                            <h3>投标文件优化</h3>
+                            <p>对已有投标文件进行审核、优化和提升，增强文件逻辑性和说服力。</p>
+                        </div>
+                        <div class="service-full-card">
+                            <span class="icon">🛡️</span>
+                            <h3>质疑与答复</h3>
+                            <p>协助客户对招标文件提出质疑，并专业答复招标方的澄清要求。</p>
+                        </div>
+                        <div class="service-full-card">
+                            <span class="icon">🏆</span>
+                            <h3>保标 · 控标</h3>
+                            <p>中标策略制定、竞争对手分析、风险防控、开标模拟等全方位控标服务。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Process -->
+            <section class="process-section">
+                <div class="container">
+                    <div class="section-title">
+                        <span class="label">操作流程</span>
+                        <h2>我们的服务流程</h2>
+                        <p>从需求对接到成功中标，我们全程陪伴</p>
+                    </div>
+                    <div class="process-steps">
+                        <div class="process-step">
+                            <h4>需求诊断</h4>
+                            <p>深入了解项目背景、客户需求与投标目标</p>
+                        </div>
+                        <div class="process-step">
+                            <h4>方案设计</h4>
+                            <p>制定个性化投标策略与文件编制方案</p>
+                        </div>
+                        <div class="process-step">
+                            <h4>文件编制</h4>
+                            <p>专业团队分工协作，高质量完成投标文件</p>
+                        </div>
+                        <div class="process-step">
+                            <h4>交付复盘</h4>
+                            <p>文件审核交付，并提供标后复盘与优化建议</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ -->
+            <section class="faq-section">
+                <div class="container">
+                    <div class="section-title">
+                        <span class="label">常见问题</span>
+                        <h2>FAQ</h2>
+                    </div>
+                    <div class="faq-list" id="faqList">
+                        <div class="faq-item open">
+                            <div class="question"><span>投标文件制作需要多长时间？</span><span class="arrow">▾</span></div>
+                            <div class="answer">根据项目复杂程度，一般技术标和商务标制作周期为 3-7 个工作日，紧急项目可加急处理。我们会在需求诊断后给出精确的时间评估。</div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="question"><span>你们服务哪些行业？</span><span class="arrow">▾</span></div>
+                            <div class="answer">我们服务覆盖建筑工程、政府采购、IT科技、设备制造、服务咨询、能源环保等 20+ 个行业，拥有丰富的跨行业投标经验。</div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="question"><span>如何保证投标文件的质量和命中率？</span><span class="arrow">▾</span></div>
+                            <div class="answer">我们采用三级审核制度：编制人自检、组长复核、专家终审。同时基于历史中标数据库进行对标分析，确保文件精准匹配评审标准。</div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="question"><span>价格如何计算？</span><span class="arrow">▾</span></div>
+                            <div class="answer">价格根据项目规模、文件类型、紧急程度等因素综合评估。我们提供免费的需求诊断和报价咨询，确保价格透明合理。</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="final-cta" style="border-radius:0;">
+                <div class="container">
+                    <h2>需要专业的投标服务？</h2>
+                    <p>立即联系我们，获取免费咨询与方案评估</p>
+                    <a href="#" data-page="contact" class="btn btn-primary">联系我们 →</a>
+                </div>
+            </section>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- LISTINGS PAGE -->
+        <!-- ============================================================ -->
+        <section class="page" id="page-listings">
+            <div class="listings-hero">
+                <div class="container">
+                    <h1>成功案例</h1>
+                    <p>精选项目展示，用实力说话</p>
+                </div>
+            </div>
+
+            <div class="listings-filter">
+                <div class="container">
+                    <div class="filter-group" id="filterGroup">
+                        <button class="filter-btn active" data-filter="all">全部</button>
+                        <button class="filter-btn" data-filter="construction">建筑工程</button>
+                        <button class="filter-btn" data-filter="government">政府采购</button>
+                        <button class="filter-btn" data-filter="it">IT科技</button>
+                        <button class="filter-btn" data-filter="equipment">设备制造</button>
+                    </div>
+                </div>
+            </div>
+
+            <section class="listings-grid">
+                <div class="container">
+                    <div class="grid" id="listingsGrid">
+                        <!-- Cards will be rendered by JS -->
+                    </div>
+                    <div class="text-center mt-32">
+                        <a href="#" data-page="contact" class="btn btn-primary">获取专属投标方案 →</a>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- CONTACT PAGE -->
+        <!-- ============================================================ -->
+        <section class="page" id="page-contact">
+            <div class="contact-hero">
+                <div class="container">
+                    <h1>联系我们</h1>
+                    <p>让我们为您提供专业的投标服务支持</p>
+                </div>
+            </div>
+
+            <section class="contact-section">
+                <div class="container">
+                    <div class="contact-wrapper">
+                        <!-- Form -->
+                        <div class="contact-form">
+                            <h3>📩 发送需求</h3>
+                            <form id="contactForm">
+                                <div class="form-group">
+                                    <label for="name">您的姓名 *</label>
+                                    <input type="text" id="name" placeholder="请输入姓名" required />
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">邮箱 *</label>
+                                    <input type="email" id="email" placeholder="请输入邮箱" required />
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">电话</label>
+                                    <input type="tel" id="phone" placeholder="请输入手机号" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="service">感兴趣的服务</label>
+                                    <select id="service">
+                                        <option value="">请选择</option>
+                                        <option>技术标编制</option>
+                                        <option>商务标制作</option>
+                                        <option>价格标编制</option>
+                                        <option>投标文件优化</option>
+                                        <option>质疑与答复</option>
+                                        <option>保标 · 控标</option>
+                                        <option>全流程服务</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="message">留言 *</label>
+                                    <textarea id="message" placeholder="请描述您的投标需求或项目情况..." required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary" style="width:100%;">提交需求 →</button>
+                            </form>
+                            <div id="formMessage" style="margin-top:16px;font-weight:500;display:none;"></div>
+                        </div>
+
+                        <!-- Info -->
+                        <div class="contact-info">
+                            <div>
+                                <h3>📞 联系信息</h3>
+                                <p style="color:var(--text-muted);margin-bottom:16px;">随时联系我们，我们将尽快回复</p>
+                            </div>
+                            <div class="info-item">
+                                <span class="icon">📍</span>
+                                <div><strong>地址</strong><p>北京市朝阳区建国路 88 号 SOHO 现代城 A 座 18 层</p></div>
+                            </div>
+                            <div class="info-item">
+                                <span class="icon">📧</span>
+                                <div><strong>邮箱</strong><p>contact@bidpower.com</p></div>
+                            </div>
+                            <div class="info-item">
+                                <span class="icon">📞</span>
+                                <div><strong>电话</strong><p>400-888-6666</p></div>
+                            </div>
+                            <div class="info-item">
+                                <span class="icon">🕐</span>
+                                <div><strong>工作时间</strong><p>周一至周五 9:00 – 18:00</p></div>
+                            </div>
+
+                            <div>
+                                <h4 style="font-weight:600;color:var(--primary);margin-bottom:8px;">关注我们</h4>
+                                <div class="social-links">
+                                    <a href="#" aria-label="微信">💬</a>
+                                    <a href="#" aria-label="微博">📱</a>
+                                    <a href="#" aria-label="LinkedIn">🔗</a>
+                                    <a href="#" aria-label="YouTube">▶️</a>
+                                </div>
+                            </div>
+
+                            <div class="map-placeholder">
+                                <span>📍 北京市朝阳区建国路 88 号 · 查看地图</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-brand">
+                <a href="#" class="logo" data-page="home">
+                    <span class="logo-icon">B</span>
+                    Bid<span>Power</span>
+                </a>
+                <p>专业投标全流程服务提供商，助力企业成功中标。</p>
+            </div>
+            <div>
+                <h4>快速链接</h4>
+                <ul>
+                    <li><a href="#" data-page="home">首页</a></li>
+                    <li><a href="#" data-page="about">关于我们</a></li>
+                    <li><a href="#" data-page="services">服务</a></li>
+                    <li><a href="#" data-page="listings">案例</a></li>
+                    <li><a href="#" data-page="contact">联系我们</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>服务</h4>
+                <ul>
+                    <li><a href="#" data-page="services">技术标编制</a></li>
+                    <li><a href="#" data-page="services">商务标制作</a></li>
+                    <li><a href="#" data-page="services">价格标编制</a></li>
+                    <li><a href="#" data-page="services">保标 · 控标</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>联系</h4>
+                <ul>
+                    <li>📞 400-888-6666</li>
+                    <li>📧 contact@bidpower.com</li>
+                    <li>📍 北京市朝阳区建国路 88 号</li>
+                </ul>
+                <div class="social-links" style="margin-top:12px;">
+                    <a href="#" aria-label="微信">💬</a>
+                    <a href="#" aria-label="微博">📱</a>
+                    <a href="#" aria-label="LinkedIn">🔗</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 BidPower. All rights reserved.  |  京ICP备 2026000000 号
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================================ -->
+    <!-- JavaScript -->
+    <!-- ============================================================ -->
+    <script>
+        (function() {
+            'use strict';
+
+            // ---- Data ----
+            const listingsData = [{
+                id: 1,
+                title: '北京城市副中心综合管廊工程',
+                category: 'construction',
+                tag: '建筑工程',
+                img: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=600&h=400&fit=crop&crop=center&auto=format',
+                desc: '技术标与商务标全流程编制，助力中标 2.3 亿项目。'
+            }, {
+                id: 2,
+                title: '省级政务云平台采购项目',
+                category: 'government',
+                tag: '政府采购',
+                img: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=400&fit=crop&crop=center&auto=format',
+                desc: '价格标与商务标优化，成功中标 8000 万政务云项目。'
+            }, {
+                id: 3,
+                title: '智慧园区信息化系统集成',
+                category: 'it',
+                tag: 'IT科技',
+                img: 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=600&h=400&fit=crop&crop=center&auto=format',
+                desc: '技术方案与控标策略，中标 5600 万智慧园区项目。'
+            }, {
+                id: 4,
+                title: '大型水处理设备采购',
+                category: 'equipment',
+                tag: '设备制造',
+                img: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop&crop=center&auto=format',
+                desc: '技术标与报价策略，中标 1.2 亿水处理设备项目。'
+            }, {
+                id: 5,
+                title: '城市轨道交通信号系统',
+                category: 'construction',
+                tag: '建筑工程',
+                img: 'https://images.unsplash.com/photo-1517930535738-4e6242f5b4a7?w=600&h=400&fit=crop&crop=center&auto=format',
+                desc: '全流程投标服务，中标 4.5 亿轨道交通信号项目。'
+            }, {
+                id: 6,
+                title: '国家级科研平台设备采购',
+                category: 'government',
+                tag: '政府采购',
+                img: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=600&h=400&fit=crop&crop=center&auto=format',
+                desc: '商务标与质疑答复服务，中标 3200 万科研设备项目。'
+            }];
+
+            // ---- DOM refs ----
+            const pages = document.querySelectorAll('.page');
+            const navLinks = document.querySelectorAll('.nav a[data-page]');
+            const logoLinks = document.querySelectorAll('.logo[data-page]');
+            const footerLinks = document.querySelectorAll('.footer a[data-page]');
+            const menuToggle = document.getElementById('menuToggle');
+            const mainNav = document.getElementById('mainNav');
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const listingsGrid = document.getElementById('listingsGrid');
+            const faqItems = document.querySelectorAll('.faq-item');
+            const contactForm = document.getElementById('contactForm');
+            const formMessage = document.getElementById('formMessage');
+
+            // ---- Navigation ----
+            function navigateTo(pageId) {
+                // Hide all pages
+                pages.forEach(p => p.classList.remove('active'));
+                // Show target
+                const target = document.getElementById('page-' + pageId);
+                if (target) target.classList.add('active');
+
+                // Update nav links
+                navLinks.forEach(a => {
+                    a.classList.toggle('active', a.dataset.page === pageId);
+                });
+
+                // Close mobile menu
+                mainNav.classList.remove('open');
+                menuToggle.classList.remove('active');
+
+                // Scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+
+                // Update URL hash
+                if (pageId === 'home') {
+                    history.pushState(null, '', '/');
+                } else {
+                    history.pushState(null, '', '#' + pageId);
+                }
+            }
+
+            function handleNavClick(e) {
+                const target = e.currentTarget;
+                const pageId = target.dataset.page;
+                if (pageId) {
+                    e.preventDefault();
+                    navigateTo(pageId);
+                }
+            }
+
+            // Attach nav events
+            navLinks.forEach(a => a.addEventListener('click', handleNavClick));
+            logoLinks.forEach(a => a.addEventListener('click', handleNavClick));
+            footerLinks.forEach(a => a.addEventListener('click', handleNavClick));
+
+            // ---- Mobile menu ----
+            menuToggle.addEventListener('click', function() {
+                this.classList.toggle('active');
+                mainNav.classList.toggle('open');
+            });
+
+            // Close menu on link click (mobile)
+            document.querySelectorAll('.nav a').forEach(a => {
+                a.addEventListener('click', () => {
+                    mainNav.classList.remove('open');
+                    menuToggle.classList.remove('active');
+                });
+            });
+
+            // ---- Header scroll effect ----
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                header.classList.toggle('scrolled', window.scrollY > 20);
+            });
+
+            // ---- Render Listings ----
+            function renderListings(filter = 'all') {
+                const filtered = filter === 'all' ?
+                    listingsData :
+                    listingsData.filter(item => item.category === filter);
+
+                if (filtered.length === 0) {
+                    listingsGrid.innerHTML =
+                        `<div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--text-muted);">暂无该分类的案例，请选择其他分类</div>`;
+                    return;
+                }
+
+                listingsGrid.innerHTML = filtered.map(item => `
+                        <div class="listing-card" data-category="${item.category}">
+                            <img src="${item.img}" alt="${item.title}" loading="lazy" />
+                            <div class="body">
+                                <span class="tag">${item.tag}</span>
+                                <h3>${item.title}</h3>
+                                <p>${item.desc}</p>
+                            </div>
+                        </div>
+                    `).join('');
+            }
+
+            // ---- Filter buttons ----
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    const filter = this.dataset.filter;
+                    renderListings(filter);
+                });
+            });
+
+            // ---- FAQ toggle ----
+            faqItems.forEach(item => {
+                const question = item.querySelector('.question');
+                question.addEventListener('click', function() {
+                    const isOpen = item.classList.contains('open');
+                    // Close all
+                    faqItems.forEach(i => i.classList.remove('open'));
+                    if (!isOpen) item.classList.add('open');
+                });
+            });
+
+            // ---- Contact Form ----
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const name = document.getElementById('name').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const message = document.getElementById('message').value.trim();
+
+                if (!name || !email || !message) {
+                    formMessage.style.display = 'block';
+                    formMessage.style.color = '#d9534f';
+                    formMessage.textContent = '请填写所有必填字段（姓名、邮箱、留言）';
+                    return;
+                }
+
+                // Simple email validation
+                if (!email.includes('@') || !email.includes('.')) {
+                    formMessage.style.display = 'block';
+                    formMessage.style.color = '#d9534f';
+                    formMessage.textContent = '请输入有效的邮箱地址';
+                    return;
+                }
+
+                // Success simulation
+                formMessage.style.display = 'block';
+                formMessage.style.color = '#28a745';
+                formMessage.textContent = '✅ 需求已提交！我们将在 24 小时内与您联系。';
+                contactForm.reset();
+
+                // Auto hide after 5s
+                setTimeout(() => {
+                    formMessage.style.display = 'none';
+                }, 6000);
+            });
+
+            // ---- Hash-based routing ----
+            function handleHash() {
+                const hash = window.location.hash.replace('#', '');
+                if (hash && ['home', 'about', 'services', 'listings', 'contact'].includes(hash)) {
+                    navigateTo(hash);
+                } else {
+                    navigateTo('home');
+                }
+            }
+
+            window.addEventListener('hashchange', handleHash);
+
+            // ---- Init ----
+            // Render listings
+            renderListings('all');
+
+            // Handle initial hash
+            handleHash();
+
+            // ---- Ensure nav active state on load ----
+            const currentHash = window.location.hash.replace('#', '') || 'home';
+            navLinks.forEach(a => {
+                a.classList.toggle('active', a.dataset.page === currentHash);
+            });
+
+        })();
+    </script>
+</body>
+</html>
