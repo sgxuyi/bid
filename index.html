@@ -1010,12 +1010,17 @@
             font-size: 0.95rem;
         }
 
+        /* ===== 社交媒体悬停弹窗与工具提示 增强样式 ===== */
         .social-links {
             display: flex;
             gap: 12px;
-            margin-top: 8px;
+            position: relative;
         }
-        .social-links a {
+        .social-item {
+            position: relative;
+            display: inline-flex;
+        }
+        .social-item a {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1027,26 +1032,90 @@
             font-size: 1.2rem;
             transition: var(--transition);
             color: var(--text-body);
+            cursor: pointer;
         }
-        .social-links a:hover {
+        .social-item a:hover {
             background: var(--primary);
             color: #fff;
             border-color: var(--primary);
             transform: translateY(-3px);
         }
 
-        .map-placeholder {
+        /* 微信二维码弹窗 */
+        .wechat-popup {
+            display: none;
+            position: absolute;
+            bottom: calc(100% + 12px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: #fff;
+            padding: 6px;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+            width: 130px;
+            height: 130px;
+            z-index: 1000;
+        }
+        .wechat-popup img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 6px;
+        }
+        .wechat-popup::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 8px solid transparent;
+            border-top-color: #fff;
+        }
+        .social-item.wechat:hover .wechat-popup {
+            display: block;
+        }
+
+        /* 通用文字提示气泡 */
+        .social-item[data-tooltip]:hover::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: calc(100% + 12px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: #333;
+            color: #fff;
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            z-index: 1000;
+            pointer-events: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            letter-spacing: 0.5px;
+        }
+        .social-item[data-tooltip]:hover::before {
+            content: '';
+            position: absolute;
+            bottom: calc(100% + 4px);
+            left: 50%;
+            transform: translateX(-50%);
+            border: 6px solid transparent;
+            border-top-color: #333;
+            z-index: 1000;
+        }
+
+        /* 地图插件容器 */
+        .map-container {
             margin-top: 24px;
             border-radius: var(--radius);
             overflow: hidden;
             height: 200px;
-            background: var(--bg-light);
             border: 1px solid var(--border-light);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-muted);
-            font-size: 0.95rem;
+        }
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
         }
 
         /* ===== Footer ===== */
@@ -1817,15 +1886,31 @@
                             <div>
                                 <h4 style="font-weight:600;color:var(--primary);margin-bottom:8px;">关注我们</h4>
                                 <div class="social-links">
-                                    <a href="#" aria-label="微信">💬</a>
-                                    <a href="#" aria-label="微博">📱</a>
-                                    <a href="#" aria-label="LinkedIn">🔗</a>
-                                    <a href="#" aria-label="YouTube">▶️</a>
+                                    <!-- 微信：悬停显示二维码 (请确保同级目录下存在 wechat.png 或修改下方的 src 路径) -->
+                                    <div class="social-item wechat">
+                                        <a href="javascript:void(0);" aria-label="微信">💬</a>
+                                        <div class="wechat-popup">
+                                            <img src="wechat.png" alt="微信二维码" />
+                                        </div>
+                                    </div>
+                                    <!-- 微博：悬停显示手机号 -->
+                                    <div class="social-item" data-tooltip="18782234757">
+                                        <a href="javascript:void(0);" aria-label="微博">📱</a>
+                                    </div>
+                                    <!-- 第三个图标：悬停显示网址，点击返回首页 -->
+                                    <div class="social-item" data-tooltip="bidpower.cc.cd">
+                                        <a href="javascript:void(0);" onclick="navigateTo('home')" aria-label="网站">🔗</a>
+                                    </div>
+                                    <!-- 第四个图标：保持不变 -->
+                                    <div class="social-item">
+                                        <a href="#" aria-label="YouTube">▶️</a>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="map-placeholder">
-                                <span>📍 成都市武侯区天府大道中段 · 查看地图</span>
+                            <!-- 真实地图嵌入 -->
+                            <div class="map-container">
+                                <iframe src="https://map.baidu.com/search/%E6%88%90%E9%83%BD%E5%B8%82%E6%AD%A6%E4%BE%AF%E5%8C%BA%E5%A4%A9%E5%BA%9C%E5%A4%A7%E9%81%93%E4%B8%AD%E6%AE%B5/@104.065735,30.572816?wd=成都市武侯区天府大道中段&tn=B_NORMAL_MAP&t=0" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>
                             </div>
                         </div>
                     </div>
@@ -1976,6 +2061,9 @@
                 }
             }
 
+            // 暴露 navigateTo 给全局，以便社交图标点击调用
+            window.navigateTo = navigateTo;
+
             function handleNavClick(e) {
                 const target = e.currentTarget;
                 const pageId = target.dataset.page;
@@ -2055,13 +2143,15 @@
                 });
             });
 
-            // ---- Contact Form ----
+            // ---- Contact Form (Enhanced Validation) ----
             contactForm.addEventListener('submit', function(e) {
                 e.preventDefault();
                 const name = document.getElementById('name').value.trim();
                 const email = document.getElementById('email').value.trim();
+                const phone = document.getElementById('phone').value.trim();
                 const message = document.getElementById('message').value.trim();
 
+                // 基础必填检查
                 if (!name || !email || !message) {
                     formMessage.style.display = 'block';
                     formMessage.style.color = '#d9534f';
@@ -2069,11 +2159,21 @@
                     return;
                 }
 
-                // Simple email validation
-                if (!email.includes('@') || !email.includes('.')) {
+                // 增强的邮箱格式检查
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
                     formMessage.style.display = 'block';
                     formMessage.style.color = '#d9534f';
-                    formMessage.textContent = '请输入有效的邮箱地址';
+                    formMessage.textContent = '请输入有效的邮箱地址 (例如: name@domain.com)';
+                    return;
+                }
+
+                // 电话格式检查 (如果不为空，则必须为有效的11位中国手机号)
+                const phoneRegex = /^1[3-9]\d{9}$/;
+                if (phone && !phoneRegex.test(phone)) {
+                    formMessage.style.display = 'block';
+                    formMessage.style.color = '#d9534f';
+                    formMessage.textContent = '请输入有效的11位中国手机号 (例如: 13800138000)';
                     return;
                 }
 
