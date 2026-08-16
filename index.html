@@ -11,19 +11,22 @@
     <style>
         /* ===== CSS Variables ===== */
         :root {
-            --bg-deep: #0b1426;
-            --bg-card: rgba(255, 255, 255, 0.03);
-            --bg-card-hover: rgba(255, 255, 255, 0.06);
-            --border-glass: rgba(255, 255, 255, 0.06);
-            --border-glass-hover: rgba(201, 168, 76, 0.3);
-            --gold: #c9a84c;
-            --gold-light: #e8d28a;
-            --gold-glow: rgba(201, 168, 76, 0.2);
-            --text-primary: #f0f4fa;
-            --text-secondary: #b0c4de;
-            --text-muted: #7a8aa0;
-            --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.4);
-            --shadow-hover: 0 12px 48px rgba(0, 0, 0, 0.6);
+            --bg-deep: #050810;
+            --bg-card: rgba(8, 16, 40, 0.55);
+            --bg-card-hover: rgba(12, 24, 60, 0.75);
+            --border-glass: rgba(0, 240, 255, 0.07);
+            --border-glass-hover: rgba(0, 240, 255, 0.32);
+            --cyan: #00f0ff;
+            --cyan-dim: #00b4d8;
+            --cyan-glow: rgba(0, 240, 255, 0.22);
+            --cyan-glow-strong: rgba(0, 240, 255, 0.45);
+            --pink: #ff2d78;
+            --pink-glow: rgba(255, 45, 120, 0.18);
+            --text-primary: #e6f2f7;
+            --text-secondary: #98c4d8;
+            --text-muted: #557890;
+            --shadow-card: 0 4px 30px rgba(0, 0, 0, 0.55), 0 0 1px rgba(0, 240, 255, 0.08);
+            --shadow-hover: 0 8px 42px rgba(0, 0, 0, 0.75), 0 0 18px rgba(0, 240, 255, 0.12);
             --radius: 16px;
             --radius-lg: 24px;
             --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -100,26 +103,26 @@
             pointer-events: none;
         }
         .btn-primary {
-            background: linear-gradient(135deg, var(--gold), #b8923a);
+            background: linear-gradient(135deg, var(--cyan), #0098b8);
             color: #0b1426;
-            box-shadow: 0 4px 20px var(--gold-glow);
+            box-shadow: 0 4px 20px var(--cyan-glow);
         }
         .btn-primary:hover {
             transform: translateY(-2px) scale(1.02);
-            box-shadow: 0 8px 32px var(--gold-glow);
-            background: linear-gradient(135deg, var(--gold-light), var(--gold));
+            box-shadow: 0 8px 32px var(--cyan-glow);
+            background: linear-gradient(135deg, var(--cyan-light), var(--cyan));
         }
         .btn-outline {
             background: transparent;
-            color: var(--gold);
-            border: 1.5px solid var(--gold);
+            color: var(--cyan);
+            border: 1.5px solid var(--cyan);
             backdrop-filter: blur(4px);
         }
         .btn-outline:hover {
-            background: var(--gold);
+            background: var(--cyan);
             color: #0b1426;
             transform: translateY(-2px);
-            box-shadow: 0 8px 24px var(--gold-glow);
+            box-shadow: 0 8px 24px var(--cyan-glow);
         }
         .btn-outline-light {
             background: transparent;
@@ -139,7 +142,7 @@
             color: #0b1426;
         }
         .btn-white:hover {
-            background: var(--gold-light);
+            background: var(--cyan-light);
             transform: translateY(-2px);
             box-shadow: 0 8px 30px rgba(255, 255, 255, 0.2);
         }
@@ -192,7 +195,7 @@
         .logo-icon {
             width: 38px;
             height: 38px;
-            background: linear-gradient(135deg, var(--gold), #b8923a);
+            background: linear-gradient(135deg, var(--cyan), #0098b8);
             border-radius: 10px;
             display: flex;
             align-items: center;
@@ -202,7 +205,7 @@
             font-size: 1.1rem;
         }
         .logo span {
-            color: var(--gold);
+            color: var(--cyan);
             font-weight: 300;
         }
         .header-clock {
@@ -247,7 +250,7 @@
             left: 50%;
             width: 0;
             height: 2px;
-            background: var(--gold);
+            background: var(--cyan);
             transition: var(--transition);
             transform: translateX(-50%);
         }
@@ -261,7 +264,7 @@
             background: transparent;
         }
         .nav a.active {
-            color: var(--gold);
+            color: var(--cyan);
             font-weight: 600;
         }
 
@@ -294,7 +297,7 @@
             backdrop-filter: blur(4px);
         }
         .lang-btn:hover {
-            border-color: var(--gold);
+            border-color: var(--cyan);
             color: #fff;
         }
         .lang-btn .arrow {
@@ -333,7 +336,7 @@
         }
         .lang-dropdown li.active-lang {
             background: rgba(201, 168, 76, 0.12);
-            color: var(--gold);
+            color: var(--cyan);
             font-weight: 500;
         }
 
@@ -426,7 +429,7 @@
             color: #fff;
         }
         .hero-content h1 .highlight {
-            color: var(--gold);
+            color: var(--cyan);
             position: relative;
             text-shadow: 0 0 40px rgba(201, 168, 76, 0.15);
         }
@@ -480,7 +483,7 @@
             letter-spacing: 0.3px;
         }
         .trust-item .icon {
-            color: var(--gold);
+            color: var(--cyan);
             font-size: 1.4rem;
         }
 
@@ -493,7 +496,7 @@
         .section-title .label {
             display: inline-block;
             background: rgba(201, 168, 76, 0.1);
-            color: var(--gold);
+            color: var(--cyan);
             font-weight: 500;
             font-size: 0.75rem;
             text-transform: uppercase;
@@ -620,7 +623,7 @@
             backdrop-filter: blur(12px);
             border-radius: var(--radius);
             padding: 34px 30px;
-            border-left: 4px solid var(--gold);
+            border-left: 4px solid var(--cyan);
             border: 1px solid var(--border-glass);
             border-left-width: 4px;
             box-shadow: var(--shadow-card);
@@ -632,7 +635,7 @@
             border-color: var(--border-glass-hover);
         }
         .testimonial-card .stars {
-            color: var(--gold);
+            color: var(--cyan);
             font-size: 1.1rem;
             letter-spacing: 3px;
             margin-bottom: 12px;
@@ -834,7 +837,7 @@
             background: var(--bg-card);
             backdrop-filter: blur(12px);
             border-radius: var(--radius);
-            border-left: 4px solid var(--gold);
+            border-left: 4px solid var(--cyan);
             border: 1px solid var(--border-glass);
             border-left-width: 4px;
             box-shadow: var(--shadow-card);
@@ -959,15 +962,15 @@
             letter-spacing: 0.3px;
         }
         .service-tabs .tabs-nav button:hover {
-            border-color: var(--gold);
+            border-color: var(--cyan);
             color: #fff;
         }
         .service-tabs .tabs-nav button.active {
-            background: linear-gradient(135deg, var(--gold), #b8923a);
+            background: linear-gradient(135deg, var(--cyan), #0098b8);
             color: #0b1426;
-            border-color: var(--gold);
+            border-color: var(--cyan);
             font-weight: 600;
-            box-shadow: 0 4px 20px var(--gold-glow);
+            box-shadow: 0 4px 20px var(--cyan-glow);
         }
         .service-tab-content {
             display: none;
@@ -1039,7 +1042,7 @@
             height: 48px;
             line-height: 48px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--gold), #b8923a);
+            background: linear-gradient(135deg, var(--cyan), #0098b8);
             color: #0b1426;
             font-weight: 700;
             font-size: 1.2rem;
@@ -1093,7 +1096,7 @@
         .faq-item .question .arrow {
             transition: var(--transition);
             font-size: 1.2rem;
-            color: var(--gold);
+            color: var(--cyan);
         }
         .faq-item.open .question .arrow {
             transform: rotate(180deg);
@@ -1169,10 +1172,10 @@
         }
         .filter-btn:hover,
         .filter-btn.active {
-            background: linear-gradient(135deg, var(--gold), #b8923a);
+            background: linear-gradient(135deg, var(--cyan), #0098b8);
             color: #0b1426;
-            border-color: var(--gold);
-            box-shadow: 0 4px 20px var(--gold-glow);
+            border-color: var(--cyan);
+            box-shadow: 0 4px 20px var(--cyan-glow);
         }
         .listings-grid {
             padding: 56px 0 72px;
@@ -1215,7 +1218,7 @@
             font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: var(--gold);
+            color: var(--cyan);
             background: rgba(201, 168, 76, 0.1);
             padding: 2px 14px;
             border-radius: 40px;
@@ -1315,8 +1318,8 @@
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: var(--gold);
-            box-shadow: 0 0 0 4px var(--gold-glow);
+            border-color: var(--cyan);
+            box-shadow: 0 0 0 4px var(--cyan-glow);
             background: rgba(255, 255, 255, 0.06);
         }
         .form-group textarea {
@@ -1396,11 +1399,11 @@
             cursor: pointer;
         }
         .social-item a:hover {
-            background: var(--gold);
+            background: var(--cyan);
             color: #0b1426;
-            border-color: var(--gold);
+            border-color: var(--cyan);
             transform: translateY(-4px);
-            box-shadow: 0 8px 24px var(--gold-glow);
+            box-shadow: 0 8px 24px var(--cyan-glow);
         }
         .wechat-popup {
             display: none;
@@ -1509,7 +1512,7 @@
             margin-bottom: 10px;
         }
         .footer ul a:hover {
-            color: var(--gold);
+            color: var(--cyan);
         }
         .footer .social-links a {
             background: rgba(255, 255, 255, 0.03);
@@ -1517,9 +1520,9 @@
             color: rgba(255, 255, 255, 0.4);
         }
         .footer .social-links a:hover {
-            background: var(--gold);
+            background: var(--cyan);
             color: #0b1426;
-            border-color: var(--gold);
+            border-color: var(--cyan);
         }
         .footer-bottom {
             border-top: 1px solid rgba(255, 255, 255, 0.04);
@@ -1539,12 +1542,12 @@
             width: 54px;
             height: 54px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--gold), #b8923a);
+            background: linear-gradient(135deg, var(--cyan), #0098b8);
             color: #0b1426;
             border: none;
             font-size: 1.6rem;
             cursor: pointer;
-            box-shadow: 0 4px 24px var(--gold-glow);
+            box-shadow: 0 4px 24px var(--cyan-glow);
             transition: var(--transition);
             z-index: 999;
             display: flex;
@@ -1560,9 +1563,9 @@
             transform: translateY(0);
         }
         .top-btn:hover {
-            background: var(--gold-light);
+            background: var(--cyan-light);
             transform: translateY(-4px) scale(1.05);
-            box-shadow: 0 8px 32px var(--gold-glow);
+            box-shadow: 0 8px 32px var(--cyan-glow);
         }
 
         /* ===== Responsive ===== */
@@ -1790,11 +1793,11 @@
             background: var(--bg-deep);
         }
         ::-webkit-scrollbar-thumb {
-            background: var(--gold);
+            background: var(--cyan);
             border-radius: 6px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: var(--gold-light);
+            background: var(--cyan-light);
         }
     </style>
 </head>
@@ -1961,7 +1964,7 @@
             <section class="about-preview">
                 <div class="container">
                     <div>
-                        <span class="label" style="display:inline-block;background:rgba(201,168,76,0.1);color:var(--gold);font-weight:500;font-size:0.75rem;text-transform:uppercase;letter-spacing:2px;padding:4px 18px;border-radius:40px;margin-bottom:16px;border:1px solid rgba(201,168,76,0.1);" data-i18n="about.label">关于我们</span>
+                        <span class="label" style="display:inline-block;background:rgba(201,168,76,0.1);color:var(--cyan);font-weight:500;font-size:0.75rem;text-transform:uppercase;letter-spacing:2px;padding:4px 18px;border-radius:40px;margin-bottom:16px;border:1px solid rgba(201,168,76,0.1);" data-i18n="about.label">关于我们</span>
                         <h2 data-i18n="about.title">专注投标服务，助力企业成功</h2>
                         <p data-i18n="about.p1">BidPower 成立于 2018 年，是国内领先的招投标全流程服务提供商。我们深谙招投标规则，拥有覆盖建筑工程、政府采购、IT科技、设备制造等领域的专业团队。</p>
                         <p data-i18n="about.p2">我们坚信：每一份投标文件都承载着企业的希望与实力。我们以专业、严谨、高效的态度，帮助客户将实力转化为中标成果。</p>
@@ -3302,7 +3305,7 @@
                 const message = document.getElementById('message').value.trim();
 
                 formMessage.style.display = 'block';
-                formMessage.style.color = '#c9a84c';
+                formMessage.style.color = '#00d4e8';
                 formMessage.style.fontWeight = '400';
                 formMessage.textContent = '⏳ 正在提交数据，请稍候...';
 
@@ -3331,7 +3334,7 @@
                     body: JSON.stringify({ name, email, phone, service, message })
                 })
                 .then(() => {
-                    formMessage.style.color = '#c9a84c';
+                    formMessage.style.color = '#00d4e8';
                     formMessage.textContent = '✅ 提交成功！我们将在24小时内联系您，请注意接听电话！';
                     contactForm.reset();
                     setTimeout(() => { formMessage.style.display = 'none'; }, 6000);
